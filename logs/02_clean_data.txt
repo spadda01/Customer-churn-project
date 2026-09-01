@@ -1,0 +1,18 @@
+Now that I understand my dataset, I need to fix any errors, holes, or missing values.
+
+Goal:
+	1. reloading the dataset to the new python file. 
+	2. Fix the TotalCharges column to numeric
+	3. Understand why the TotalCharges column has null values
+	4. Come to a solution to handle the null values
+
+Steps 1 and 2 mostly speak for themselves within the python file.
+
+Step 3: 
+	When it came to the TotalCharges column and why it had NaN values after changing it from an object to a numeric column, I noticed a few things. The first was that 
+	each row had MonthlyCharges accounted for. So these customers are all new. Another big indicator to support this is that the Churn column is 'No' for all customers. 
+	The second thing I noticed was that the tenure column was set to 0 for all customers. This allowed me to understand that these were all new customers. At this point I
+	had enough information to determine how to handle the missing values of the TotalCharges column.
+
+Step 4:
+	Instead of dropping the rows, I changed each NaN value in the TotalCharges column to 0. This is because these customers had tenure = 0 and had not accumulated total charges yet, 	so replacing the missing values with 0 made more sense than dropping valid new customer records.

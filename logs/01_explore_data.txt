@@ -1,0 +1,60 @@
+I started by exploring the database to familiarize myself. See the 'Summary' section at the bottom if you don't want to read all the details.
+
+Here is what I searched for first: 
+
+	1. shape 
+	2. columns
+	3. data types of each column
+	4. summary statistics
+	5. checked for missing values
+	6. checked for duplicate rows
+	7. checked the head of the dataset
+
+My observations: 
+	1. The SeniorCitizen column consists of 0s and 1s. This tells me that the column substitutes binary for boolean. 
+	2. TotalCharges column has a an object data type. But after checking the head the first few data consisted of floats. Further investigation needed.
+
+
+Goals for targeted exploration: 
+	1. Check if only 0s and 1s exist in the SeniorCitizen column.
+	2. check if only Yes and No exist for the Churn column.
+	3. Count the number of 'Yes' and 'No' values in Churn column and the percentage of 'Yes'.
+	4. Understand why the TotalCharges has an object datatype.
+	5. A categorical search of Contract, InternetService and PaymentMethod columns to determine the percentage of Churn for each category in these columns.
+
+Observations after targeted exploration: 
+	1. Checked for unique values in SeniorCitizen column. Result was [0,1].
+	2. Checked for unique values in Churn column. Result was ['No', 'Yes'].
+	3. The number of 'Yes' values in Churn is 1,869. The number of 'No' values is 5,174. The percentage of those who churned are 26.54% (just above a quarter).
+	4. TotalCharges has 11 rows that contain spaces. 0 rows that contains alphabet. And 0 rows that contain only alphabet. 
+	5A. Categorical search for Contract column
+		- Month-to-month: 1,655 churned out of 3,875. 42.71%
+		- One year: 166 churned out of 1,473. 11.27%
+		- Two year: 48 churned out of 1,695. 2.83%
+	5B. Categorical search for InternetService column
+		- DSL: 459 churned out of 2,421. 18.96%
+		- Fiber Optic: 1,297 churned out of 3,096. 41.89%
+		- No:113 churned out of 1,526. 7.40%
+	5C. Categorical search for PaymentMethod column
+		- Bank transfer (automatic): 258 churned out of 1,544. 16.71%
+		- Credit card (automatic): 232 churned out of 1,522. 15.24%
+		- Electronic check: 1,071 churned out of 2,365. 45.29%
+		- Mailed check: 308 churned out of 1,304. 19.11%
+
+Final thoughts: 
+	1. For the Contract column, customers with a month to month contract are most likely to churn significantly compared to one year or two years. For the InternetService column, customers who are most likely to 		churn are those with fiber optic. For the PaymentMethod column, customers who pay by electronic check are most likely to churn significantly. 
+
+
+Final summary: 
+	1. Loaded the dataset
+	2. Checked the shape and columns
+	3. Checked the data types
+	4. Checked missing values
+	5. checked duplicates
+	6. Investigated the Churn column
+	7. Investigated the SeniorCitizen column
+	8. Investigated the TotalCharges column
+	9. Investigated key categorical churn patterns
+
+
+Moving onto 02_clean_data log.

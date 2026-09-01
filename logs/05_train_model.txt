@@ -1,0 +1,26 @@
+Part 5: Train Baseline Model
+
+Goal:
+The goal of this step was to train a first baseline machine learning model for customer churn prediction.
+
+Model Used:
+I used Logistic Regression because customer churn is a binary classification problem. The target variable has two classes:
+0 = did not churn
+1 = churned
+
+Process:
+1. Loaded the cleaned dataset.
+2. Created X features and y target.
+3. Split the data into training and testing sets.
+4. One-hot encoded categorical features after the split to avoid data leakage.
+5. Scaled the encoded features using StandardScaler.
+6. Trained a Logistic Regression model on the training data.
+7. Used the trained model to make predictions on the test data.
+
+Initial Results:
+The baseline Logistic Regression model achieved about 80.7% accuracy on the test set.
+
+The model performed better at identifying customers who did not churn than customers who did churn. For the churn class, the model had 66% precision and 57% recall.
+
+Conclusion:
+This baseline model is a successful first model, but recall for churned customers needs improvement. Since the business goal is to identify customers who may leave, future model improvements should focus on catching more churners, not just increasing overall accuracy.

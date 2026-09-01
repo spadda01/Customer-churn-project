@@ -1,0 +1,37 @@
+Part 3: Data Visualization
+
+Goal:
+After cleaning the dataset, I wanted to visualize important churn patterns before moving into machine learning. The goal was to understand which customer groups had higher churn rates and whether numeric features like tenure and monthly charges were related to churn.
+
+Steps:
+1. Loaded the cleaned dataset from the data/processed folder.
+2. Created a ChurnNumeric column where Yes = 1 and No = 0.
+3. Used ChurnNumeric to calculate and visualize churn rate by category.
+4. Created a cleaner label for InternetService so “No” displayed as “No Internet Service.”
+5. Saved each chart as a PNG file in the visuals folder.
+
+Charts Created:
+1. Churn Rate by Contract Type
+2. Churn Rate by Internet Service Type
+3. Churn Rate by Payment Method
+4. Customer Tenure by Churn Status
+5. Monthly Charges by Churn Status
+
+Chart Choices:
+For contract type, internet service type, and payment method, I used bar charts because these are categorical features and I wanted to compare churn rates across groups.
+
+For tenure and monthly charges, I used boxplots because these are numeric features and I wanted to compare their distributions between customers who churned and customers who did not churn.
+
+Main Findings:
+Month-to-month customers had a much higher churn rate than customers with one-year or two-year contracts.
+
+Fiber optic customers had a higher churn rate than DSL customers and customers with no internet service.
+
+Customers using electronic check had the highest churn rate among payment methods.
+
+Customers who churned generally had lower tenure, meaning newer customers were more likely to leave.
+
+Customers who churned tended to have higher monthly charges than customers who did not churn.
+
+Conclusion:
+The visualizations suggest that contract type, internet service type, payment method, tenure, and monthly charges may be useful features for predicting customer churn. These patterns will help guide the next step: preparing the data for machine learning.

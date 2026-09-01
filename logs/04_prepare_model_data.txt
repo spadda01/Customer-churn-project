@@ -1,0 +1,40 @@
+Part 4: Prepare Data for Modeling
+
+Goal:
+The goal of this step was to turn the cleaned dataset into a machine learning ready format. The cleaned data was still readable for humans, but many columns were still categorical text values. Before training a model, I needed to separate the features from the target, convert the target into numbers, encode categorical features, and split the data into training and testing sets.
+
+Steps:
+1. Loaded the cleaned dataset from the data/processed folder.
+2. Created X, the feature dataset, by removing Churn and customerID.
+3. Created y, the target column, by mapping Churn values:
+   - No = 0
+   - Yes = 1
+4. Checked the shapes of X and y to make sure the feature rows matched the target rows.
+5. Checked the target value counts to understand the class balance.
+6. Used one-hot encoding to convert categorical feature columns into numeric columns.
+7. Kept numeric columns using passthrough.
+8. Checked that no object/text columns remained after encoding.
+9. Split the prepared data into training and testing sets using an 80/20 split.
+
+Important Decisions:
+I removed customerID from the feature data because it is only an identifier and should not help predict churn.
+
+I converted Churn into a numeric target because machine learning models need the target labels in numeric form.
+
+I used one-hot encoding for categorical columns because columns like Contract, InternetService, and PaymentMethod contain text categories that models cannot directly use.
+
+I used passthrough for numeric columns so values like tenure, MonthlyCharges, TotalCharges, and SeniorCitizen stayed in the dataset.
+
+I used a train/test split so the model can later be trained on one portion of the data and tested on unseen data.
+
+If using random_state and stratify:
+I used random_state for reproducible results and stratify=y to keep the churn/non-churn ratio similar in both the training and testing sets.
+
+Result:
+At the end of this step, I had four model-ready datasets:
+- X_train
+- X_test
+- y_train
+- y_test
+
+These will be used in the next step to train and evaluate the first machine learning model.

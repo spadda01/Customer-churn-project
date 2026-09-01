@@ -1,0 +1,30 @@
+Part 6: Model Evaluation
+
+Goal:
+The goal of this step is to evaluate the baseline Logistic Regression model and understand how well it predicted customer churn. Since churn prediction is a business classification problem, I looked past accuracy and also reviewed precision, recall, F1-score, and the confusion matrix.
+
+Steps:
+1. Used the trained Logistic Regression model to make predictions on the test set.
+2. Calculated the model's accuracy.
+3. Generated a confusion matrix to compare actual churn values against predicted churn values.
+4. Generated a classification report to review precision, recall, and F1-score for both classes.
+5. Created a confusion matrix heatmap to make the results easier to interpret visually.
+
+Results:
+The baseline Logistic Regression model achieved about 80.7% accuracy.
+
+The confusion matrix showed:
+- 925 customers were correctly predicted as not churned.
+- 110 customers were incorrectly predicted as churned.
+- 162 customers were incorrectly predicted as not churned even though they actually churned.
+- 212 customers were correctly predicted as churned.
+
+The classification report showed that the model performed better on customers who did not churn than customers who did churn. For the churn class, the model had 66% precision, 57% recall, and a 61% F1-score.
+
+Interpretation:
+Accuracy alone is not enough for this project because most customers did not churn. A model could get a decent accuracy score by mostly predicting “no churn.” Since the business goal is to identify customers who may leave, recall for the churn class is especially important.
+
+The model caught 57% of the customers who actually churned, but it missed 162 churned customers. This means the baseline model is useful, but there is room for improvement.
+
+Conclusion:
+The Logistic Regression model is a successful baseline model. It performs reasonably well overall, but future improvements should focus on increasing recall for churned customers so the company can identify more at-risk customers before they leave.

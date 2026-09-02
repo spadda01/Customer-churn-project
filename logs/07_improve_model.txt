@@ -1,0 +1,40 @@
+Part 7: Model Improvement
+
+Goal:
+The goal of this step was to improve the baseline churn prediction model and compare different models using the same test set. Since the project goal is to identify customers who may leave, I focused especially on the churn recall instead of only looking at accuracy.
+
+Models Tested:
+1. Logistic Regression
+2. Balanced Logistic Regression
+3. Random Forest Classifier
+
+Process:
+I reused the same cleaned dataset, feature/target split, train/test split, one-hot encoding, and feature scaling from the previous steps. I first kept the original Logistic Regression model as the baseline. Then I trained a Balanced Logistic Regression model using class_weight="balanced" to make the model pay more attention to the smaller churn class. I also trained a Random Forest model for comparison.
+
+Results:
+
+Logistic Regression:
+- Accuracy: 0.807
+- Churn precision: 0.658
+- Churn recall: 0.567
+- Churn F1-score: 0.609
+
+Balanced Logistic Regression:
+- Accuracy: 0.740
+- Churn precision: 0.506
+- Churn recall: 0.786
+- Churn F1-score: 0.616
+
+Random Forest:
+- Accuracy: 0.786
+- Churn precision: 0.629
+- Churn recall: 0.476
+- Churn F1-score: 0.542
+
+Interpretation:
+The original Logistic Regression model had the highest overall accuracy, but it only identified about 56.7% of the customers who actually churned. The Balanced Logistic Regression model had lower accuracy, but it improved churn recall to about 78.6%. So it caught many more customers who actually churned.
+
+The Random Forest model had decent accuracy, but it had the lowest churn recall out of the three models. Because the business goal is to identify at-risk customers before they leave, Random Forest was not the best option in this version of the project.
+
+Conclusion:
+The Balanced Logistic Regression model was selected as the best model for this project because it had the highest recall for churned customers. Although it produced more false positives and had lower accuracy, this tradeoff may be acceptable in a churn prediction setting because missing actual churners is usually more costly than incorrectly flagging some customers as at risk.
